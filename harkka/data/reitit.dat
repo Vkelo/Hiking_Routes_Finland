@@ -1,0 +1,5 @@
+maakunnan id | id |reitin nimi           |pituus km|vaativuus|vesipisteitä
+1            | 1  |Karhunkierros         |82        |Vaativa  |Kyllä
+1            | 2  |Pieni karhunkierros   |23        |Helppo   |Ei
+2            | 3  |Kaakkurinkierros      |26        |Helppo   |Kyllä
+3            | 4  |Herajärven kierros    |30 - 61   |Vaativa  |Ei

@@ -1,0 +1,29 @@
+
+reitit.dat =
+kansallispuistot.dat =
+Kommentit.dat = id | kommentit
+
+
+id | nimi
+1 | karhunkierros
+2 | kaakkurinkierros
+3 | herajärven kierros
+
+id | kommentti
+1  | Liian pitkä
+2  | mukava
+3  | kylmä
+
+|nimi|id|maakunta|
+
+
+create table 'reitti' (id varchar(50)is not null, nimi) primary key ('id');
+
+reitit.dat
+reitin id; kansallispuiston id;
+
+
+--> kansallispuistot --> reitit --> kommenti(kommentin.id)
+
+1.3 suunnitelmasta
+säpo ohjaajalle
