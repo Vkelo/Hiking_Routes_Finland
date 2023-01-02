@@ -5,19 +5,35 @@
     <!--define folder properties-->
     <property name="dir.buildfile" value="."/>
     <property name="dir.workspace" value="${dir.buildfile}/.."/>
-    <property name="dir.jarfile" value="${dir.workspace}"/>
+    <property name="dir.jarfile" value="${dir.buildfile}"/>
     <target name="create_run_jar">
-        <jar destfile="${dir.workspace}/GUI.jar" filesetmanifest="mergewithoutmain">
+        <jar destfile="${dir.jarfile}/GUI.jar" filesetmanifest="mergewithoutmain">
             <manifest>
                 <attribute name="Main-Class" value="liittyma.KayttisMain"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="${dir.buildfile}/bin"/>
+            <fileset dir="${dir.jarfile}/bin"/>
             <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.fx.ide.css.jfx8_3.8.0.202204150904.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="/Users/vilikelo/devel/jar/fxgui.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="/Users/vilikelo/devel/jar/Ali.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="/Users/vilikelo/devel/jar/Graphics.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="/Users/vilikelo/devel/jar/Music.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-jupiter-api_5.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-jupiter-engine_5.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-jupiter-migrationsupport_5.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-jupiter-params_5.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-platform-commons_1.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-platform-engine_1.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-platform-launcher_1.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-platform-runner_1.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-platform-suite-api_1.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-platform-suite-engine_1.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-platform-suite-commons_1.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/junit-vintage-engine_5.9.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.opentest4j_1.2.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.apiguardian.api_1.1.2.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.junit_4.13.2.v20211018-1956.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/Applications/Eclipse.app/Contents/Eclipse/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar"/>
         </jar>
     </target>
 </project>

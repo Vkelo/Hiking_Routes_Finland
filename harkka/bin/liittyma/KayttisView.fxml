@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import fi.jyu.mit.fxgui.ListChooser?>
+<?import fi.jyu.mit.fxgui.StringGrid?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +10,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.input.KeyCodeCombination?>
@@ -38,13 +38,13 @@
           <Menu mnemonicParsing="false" text="Muokkaa">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handlePoistaReitti" text="Poista reitti..." />
-                  <MenuItem mnemonicParsing="false" onAction="#handleUusiJasen" text="Lisää uusi reitti..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleUusiReitti" text="Lisää uusi reitti..." />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Apua">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleAvaa" text="Tietoja..." />
-                  <MenuItem mnemonicParsing="false" onAction="#handleApua" text="Apua" />
+              <MenuItem mnemonicParsing="false" onAction="#handleTietoja" text="Tietoja..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAvaa" text="Apua" />
             </items>
           </Menu>
         </menus>
@@ -55,7 +55,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <Button layoutX="14.0" layoutY="7.0" onAction="#handleUusiJasen" text="_Lisää uusi">
+                  <Button layoutX="14.0" layoutY="7.0" onAction="#handleUusiReitti" text="_Lisää uusi">
                      <tooltip>
                         <Tooltip text="Uuden reitin lisääminen" />
                      </tooltip>
@@ -74,6 +74,7 @@
                         <Tooltip text="Kommentoi reittiä" />
                      </tooltip>
                   </Button>
+                  <Button layoutX="252.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleKommentinPoisto" text="Poista kommentti" />
                </children>
             </AnchorPane>
         </items>
@@ -84,13 +85,10 @@
          <center>
             <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
                <content>
-                  <TextArea prefHeight="220.0" prefWidth="200.0" text="tämä oli iha jeppis setti ja en tiiä menisinkö uusiks" wrapText="true" />
+                  <StringGrid fx:id="tableKommentit" editable="true" rivit="" />
                </content>
             </ScrollPane>
          </center>
-         <top>
-            <Label text="Kommentti" BorderPane.alignment="CENTER" />
-         </top>
       </BorderPane>
    </right>
    <left>
@@ -102,7 +100,7 @@
             <AnchorPane prefHeight="56.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="86.0" layoutY="6.0" text="Haku" />
-                  <TextField layoutY="28.0" prefHeight="26.0" prefWidth="200.0">
+                  <TextField fx:id="hakuehto" onKeyReleased="#handleHakuehto" layoutY="28.0" prefHeight="26.0" prefWidth="200.0">
                      <padding>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </padding>
@@ -113,7 +111,7 @@
       </BorderPane>
    </left>
    <center>
-     		<GridPane minHeight="250.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+     		<GridPane fx:id="gridReitti" minHeight="250.0" prefWidth="250.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -137,19 +135,14 @@
             <Label text="Vaikeusaste" GridPane.rowIndex="5" />
             <Label text="Vesipisteitä" GridPane.rowIndex="6" />
             <Label text="Sijainti" GridPane.rowIndex="7" />
-            <TextField text="Karhunkierros" GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField text="Ruka" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField text="82" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="editNimi" text="Karhunkierros" GridPane.columnIndex="1" />
+            <TextField fx:id="editAloituspaikka" text="Hautajärvi" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="editLopetuspaikka" text="Ruka" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="editPituus" text="82" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField text="Kyllä" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField text="Keskivaikea" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField text="Kyllä" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <TextField text="Oulangan kansallispuisto" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <ScrollPane fx:id="panelReitti" prefHeight="200.0" prefWidth="200.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-              </content>
-            </ScrollPane>
          </children>
          <padding>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />

@@ -13,9 +13,7 @@
          <bottom>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <buttons>
-                <Button cancelButton="true" mnemonicParsing="false" onAction="#handleDefaultCancel" text="Suomi" />
-                  <Button cancelButton="true" mnemonicParsing="false" onAction="#handleDefaultCancel" text="Ruotsi" />
-                  <Button defaultButton="true" mnemonicParsing="false" onAction="#handleDefaultOK" text="Norja" />
+                <Button cancelButton="true" mnemonicParsing="false" onAction="#handleDefaultCancel" text="Ok" />
               </buttons>
             </ButtonBar>
          </bottom>
@@ -23,24 +21,18 @@
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="164.0" text="Vili Kelo, ver. 1.0" />
+                  <Label layoutX="3.0" layoutY="8.0" prefHeight="52.0" prefWidth="93.0" text="Tervetuloa!">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutY="98.0" prefHeight="22.0" prefWidth="389.0" text="Tässä ohjelmassa voit etsiä tietoa Suomen parhaista ulkoilureiteistä!" />
+                  <Label layoutX="2.0" layoutY="121.0" prefHeight="29.0" prefWidth="367.0" text="Voit lisätä omia reittejäsi tai antaa kommentin muiden reitteihin!" />
                </children>
             </AnchorPane>
          </top>
          <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutY="-165.0" prefHeight="52.0" prefWidth="93.0" text="Tervetuloa!">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutY="-29.0" prefHeight="46.0" prefWidth="252.0" text="Valitse haluamasi maa:">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>
